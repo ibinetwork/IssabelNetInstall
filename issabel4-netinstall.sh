@@ -1216,6 +1216,7 @@ wget repo.issabel.org/geoip/geoip_install.sh
 wget repo.issabel.org/geoip/xtables-addons-2.12.tar.xz
 chmod a+x geoip_install.sh
 ./geoip_install.sh
-wget -O - https://github.com/ibinetwork/IssabelBR/raw/master/patch-issabelbr.sh | bash
 cd -
-/etc/init.d/issabel-firstboot start && reboot
+/etc/init.d/issabel-firstboot start
+wget -O - https://github.com/ibinetwork/IssabelBR/raw/master/patch-issabelbr.sh | bash
+reboot
