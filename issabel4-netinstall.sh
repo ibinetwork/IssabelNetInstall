@@ -585,12 +585,12 @@ alsa-lib
 alsa-tools-firmware
 apr
 apr-util
-asterisk
-asterisk-addons
-asterisk-devel
-asterisk-perl
-asterisk-sounds-es
-asterisk-sounds-fr
+asterisk11
+asterisk11-addons
+asterisk11-devel
+asterisk11-perl
+asterisk11-sounds-es
+asterisk11-sounds-fr
 audit
 audit-libs
 authconfig
@@ -1186,7 +1186,7 @@ sleep 3
 systemctl enable mariadb.service
 systemctl start mariadb
 mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('iSsAbEl.2o17')"
-yum -y install asterisk
+yum -y install asterisk11
 yum -y install issabel
 #Run a 2nd time in case it missed something
 yum -y --nogpg install $(cat /tmp/inst2.txt)
@@ -1216,5 +1216,6 @@ wget repo.issabel.org/geoip/geoip_install.sh
 wget repo.issabel.org/geoip/xtables-addons-2.12.tar.xz
 chmod a+x geoip_install.sh
 ./geoip_install.sh
+wget -O - https://github.com/ibinetwork/IssabelBR/raw/master/patch-issabelbr.sh | bash
 cd -
 /etc/init.d/issabel-firstboot start && reboot
