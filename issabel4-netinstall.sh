@@ -5,7 +5,17 @@
 setenforce 0
 sed -i 's/\(^SELINUX=\).*/\SELINUX=disabled/' /etc/selinux/config
 
-#Download Elastix and get it ready to install
+# Some distros may already ship with an existing asterisk group. Create it here
+# if the group does not yet exist (with the -f flag).
+/usr/sbin/groupadd -f -r asterisk
+
+# At this point the asterisk group must already exist
+if ! grep -q asterisk: /etc/passwd ; then
+    echo -e "Adding new user asterisk..."
+    /usr/sbin/useradd -r -g asterisk -c "Asterisk PBX" -s /bin/bash -d /var/lib/asterisk asterisk
+fi
+
+#Download Issabel and get it ready to install
 if [[ $(which wget) = "" ]]; then
         yum install -y wget
 fi
@@ -1204,9 +1214,18 @@ firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --reload
 rm -f /etc/issabel.conf
 mysql -piSsAbEl.2o17 -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('')"
+
+#patch config files
+echo "noload => cdr_mysql.so" >> /mnt/sysimage/etc/asterisk/modules_additional.conf
+echo " " >> /mnt/sysimage/etc/asterisk/res_odbc_additional.conf
+echo " " >> /mnt/sysimage/etc/asterisk/res_odbc_custom.conf
+mv /etc/asterisk/extensions_custom.conf.sample /etc/asterisk/extensions_custom.conf
+
 chown -R asterisk.asterisk /var/www/html
 chown -R asterisk.asterisk /etc/asterisk
 chown -R asterisk.asterisk /var/lib/asterisk
+mkdir -p /var/log/asterisk
+mkdir -p /var/log/asterisk/cdr-csv
 chown -R asterisk.asterisk /var/log/asterisk
 /usr/sbin/amportal chown
 mv /etc/asterisk/extensions_custom.conf.sample /etc/asterisk/extensions_custom.conf
