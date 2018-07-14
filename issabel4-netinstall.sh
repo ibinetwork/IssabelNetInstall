@@ -46,7 +46,7 @@ cd /tmp
 cat > /etc/yum.repos.d/Issabel.repo <<EOF
 [issabel-base]
 name=Base RPM Repository for Issabel
-mirrorlist=http://repo.us.issabel.org/?release=4&arch=\$basearch&repo=base
+mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=base
 #baseurl=http://repo.issabel.org/issabel/4/base/\$basearch/
 gpgcheck=0
 enabled=1
@@ -54,7 +54,7 @@ gpgkey=http://repo.us.issabel.org/issabel/RPM-GPG-KEY-Issabel
 
 [issabel-updates]
 name=Updates RPM Repository for Issabel
-mirrorlist=http://repo.us.issabel.org/?release=4&arch=\$basearch&repo=updates
+mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=updates
 #baseurl=http://repo.issabel.org/issabel/4/updates/\$basearch/
 gpgcheck=0
 enabled=1
@@ -62,7 +62,7 @@ gpgkey=http://repo.us.issabel.org/issabel/RPM-GPG-KEY-Issabel
 
 [issabel-updates-sources]
 name=Updates RPM Repository for Issabel
-mirrorlist=http://repo.us.issabel.org/?release=4&arch=\$basearch&repo=updates
+mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=updates
 #baseurl=http://repo.issabel.org/issabel/4/updates/SRPMS/
 gpgcheck=0
 enabled=1
@@ -70,7 +70,7 @@ gpgkey=http://repo.us.issabel.org/issabel/RPM-GPG-KEY-Issabel
 
 [issabel-beta]
 name=Beta RPM Repository for Issabel
-mirrorlist=http://repo.us.issabel.org/?release=4&arch=\$basearch&repo=beta
+mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=beta
 baseurl=http://repo.us.issabel.org/issabel/4/beta/\$basearch/
 #gpgcheck=1
 enabled=0
@@ -78,7 +78,7 @@ enabled=0
 
 [issabel-extras]
 name=Extras RPM Repository for Issabel
-mirrorlist=http://repo.us.issabel.org/?release=4&arch=\$basearch&repo=extras
+mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=extras
 #baseurl=http://repo.issabel.org/issabel/4/extras/\$basearch/
 gpgcheck=1
 enabled=1
