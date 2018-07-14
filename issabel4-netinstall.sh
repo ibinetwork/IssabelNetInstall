@@ -71,7 +71,7 @@ gpgkey=http://repo.us.issabel.org/issabel/RPM-GPG-KEY-Issabel
 [issabel-beta]
 name=Beta RPM Repository for Issabel
 #mirrorlist=http://repo.us.issabel.org/issabel/?release=4&arch=\$basearch&repo=beta
-baseurl==http://repo.us.issabel.org/issabel/4/beta/x86_64/
+baseurl=http://repo.us.issabel.org/issabel/4/beta/x86_64/
 #gpgcheck=1
 enabled=0
 #gpgkey=http://repo.us.issabel.org/issabel/RPM-GPG-KEY-Issabel
