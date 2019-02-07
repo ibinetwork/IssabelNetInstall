@@ -595,12 +595,12 @@ alsa-lib
 alsa-tools-firmware
 apr
 apr-util
-asterisk11
-asterisk11-addons
-asterisk11-devel
-asterisk11-perl
-asterisk11-sounds-es
-asterisk11-sounds-fr
+asterisk13
+asterisk13-devel
+asterisk-perl
+asterisk-es-sounds
+asterisk-fr-sounds
+asterisk-sounds-en-gsm
 audit
 audit-libs
 authconfig
@@ -1196,7 +1196,7 @@ sleep 3
 systemctl enable mariadb.service
 systemctl start mariadb
 mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('iSsAbEl.2o17')"
-yum -y install asterisk11
+yum -y install asterisk13
 yum -y install issabel
 #Run a 2nd time in case it missed something
 yum -y --nogpg install $(cat /tmp/inst2.txt)
