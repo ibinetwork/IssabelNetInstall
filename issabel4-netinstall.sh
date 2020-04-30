@@ -599,8 +599,10 @@ asterisk11
 asterisk11-addons
 asterisk11-devel
 asterisk11-perl
+asterisk-pt_BR-soundspa
 asterisk11-sounds-es
 asterisk11-sounds-fr
+asterisk-codec-g729
 audit
 audit-libs
 authconfig
@@ -1237,5 +1239,6 @@ chmod a+x geoip_install.sh
 ./geoip_install.sh
 cd -
 /etc/init.d/issabel-firstboot start
+yum update xtables-addons
 wget -O - https://github.com/ibinetwork/IssabelBR/raw/master/patch-issabelbr.sh | bash
 reboot
