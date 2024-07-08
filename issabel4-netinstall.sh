@@ -19,13 +19,18 @@ fi
 if [[ $(which wget) = "" ]]; then
         yum install -y wget
 fi
-
+sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/C*.repo
+sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/C*.repo
+sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/C*.repo
 yum -y update
 yum -y install epel-release
 yum -y install htop glances screen fail2ban-server wget sysstat net-tools
 yum -y remove fail2ban-firewalld
 systemctl enable fail2ban.service
 chkconfig fail2ban on
+sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/C*.repo
+sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/C*.repo
+sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/C*.repo
 yum -y update
 
 if [ `swapon -s | wc | awk '{print $1}'` = 0 ]; then
