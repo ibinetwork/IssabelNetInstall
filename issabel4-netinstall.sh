@@ -39,7 +39,7 @@ sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/C*.repo
 sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/C*.repo
 sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/C*.repo
 
-wget -o /etc/yum.repos.d/epel.repo https://github.com/ibinetwork/IssabelBR/raw/refs/heads/master/repo/epel.repo
+wget -O /etc/yum.repos.d/epel.repo https://github.com/ibinetwork/IssabelBR/raw/refs/heads/master/repo/epel.repo
 
 if [ `swapon -s | wc | awk '{print $1}'` = 0 ]; then
 if [ ! -f /swapfile ]; then
