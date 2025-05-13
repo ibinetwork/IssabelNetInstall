@@ -39,6 +39,8 @@ sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/C*.repo
 sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/C*.repo
 sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/C*.repo
 
+wget -o /etc/yum.repos.d/epel.repo https://github.com/ibinetwork/IssabelBR/raw/refs/heads/master/repo/epel.repo
+
 if [ `swapon -s | wc | awk '{print $1}'` = 0 ]; then
 if [ ! -f /swapfile ]; then
 dd if=/dev/zero of=/swapfile bs=1024 count=1024k
@@ -610,7 +612,7 @@ asterisk11
 asterisk11-addons
 asterisk11-devel
 asterisk11-perl
-asterisk-pt_BR-soundspa
+asterisk-pt_BR-sounds
 asterisk11-sounds-es
 asterisk11-sounds-fr
 asterisk-codec-g729
@@ -650,8 +652,6 @@ cyrus-imapd-utils
 cyrus-sasl
 cyrus-sasl-lib
 cyrus-sasl-plain
-dahdi
-dahdi-linux
 dbus
 dbus-glib
 dbus-libs
@@ -694,7 +694,6 @@ issabel-reports
 issabel-security
 elfutils-libelf
 elfutils-libs
-epel-release
 ethtool
 expat
 festival
