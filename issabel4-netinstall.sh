@@ -1250,7 +1250,8 @@ chmod a+x geoip_install.sh
 cd -
 /etc/init.d/issabel-firstboot start
 yum update xtables-addons
-yum -y install https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+yum -y install https://repo.zabbix.com/zabbix/6.0/rhel/7/x86_64/zabbix-release-latest-6.0.el7.noarch.rpm
+yum -y update
 yum install open-vm-tools zabbix-agent2 -y
 wget -O - https://github.com/ibinetwork/IssabelBR/raw/master/patch-issabelbr.sh | bash
 reboot
